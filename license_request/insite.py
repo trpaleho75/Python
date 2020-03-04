@@ -11,10 +11,10 @@ from requests.packages.urllib3.exceptions import InsecureRequestWarning # for te
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning) # for testing
 
 
-def getInsiteData(insiteURI: str, bemsid: str) -> dict:
+def getInsiteData(insiteUri: str, bemsid: str) -> dict:
 	restPath = 'culture/service/boeingUserWebServiceJSON/'
 	query = 'bemsid?query='
-	restResponse = requests.get(insiteURI + restPath + query + bemsid, verify=False)
+	restResponse = requests.get(insiteUri + restPath + query + bemsid, verify=False)
 	return json.loads(restResponse.text)
 	
 
@@ -30,17 +30,16 @@ def getCedDataSourceType(json) -> str:
 	return json['resultholder']['profiles']['profileholder']['user']['cedDataSource']
 	
 
-def getBemsidFromWindowsID(insiteURI: str, windowsId: str) -> str:
+def getBemsidFromWindowsId(insiteUri: str, windowsId: str) -> str:
 	restPath = 'culture/service/boeingUserWebServiceJSON/'
 	query = 'userid?query='
 	if windowsId.find('\\') >= 0:
 		windowsId = (windowsId.split('\\'))[1]
-	restResponse = requests.get(insiteURI + restPath + query + windowsId, verify=False)
+	restResponse = requests.get(insiteUri + restPath + query + windowsId, verify=False)
 	jsonResponse = json.loads(restResponse.text)
 	try:
 		bemsid = jsonResponse['resultholder']['profiles']['profileholder']['user']['bemsId']
 	except:
 		bemsid = ''
-		print('Windows Id validation error. Verify user has a windows account')
 	return bemsid
 	

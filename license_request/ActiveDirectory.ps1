@@ -15,7 +15,7 @@
 .PARAMETER Username
 	The windows username of the user to be added to a group.
 	
-.PARAMETER ADGroup
+.PARAMETER adGroup
 	The Active Directory group name to add a user to.
 	
 .INPUTS
@@ -30,20 +30,20 @@
 	Purpose/Change: Initial script development
   
 .EXAMPLE
-	ActiveDirectory.ps1 -IssueID "TEST-123" --Username "xy123z" --ADGroup "LICENSE_GROUP"
+	ActiveDirectory.ps1 -issueId "TEST-123" --Username "xy123z" --adGroup "LICENSE_GROUP"
 #>
 
 [CmdletBinding()]
 
 param (
 	[Parameter(Mandatory=$true)]
-	[string]$IssueId,
+	[string]$issueId,
 
 	[Parameter(Mandatory=$true)]
-	[string]$Username,
+	[string]$username,
 	
 	[Parameter(Mandatory=$true)]
-	[string]$ADGroup
+	[string]$adGroup
 )
 
 
@@ -69,17 +69,19 @@ function validateUser {
 	param (
 		[string]$user
 	)
+	Write-Debug "validateUser().`$user=$user"
+	
 	$domainControllers = (Get-ADForest).Domains
 	$dc = $null
 	ForEach ($domainController in $domainControllers) {
-		$ADUserObject = (Get-ADUser `
+		$adUserObject = (Get-ADUser `
 						-LDAPFilter "(SAMAccountName=$user)" `
 						-Server $domainController `
 						-ErrorAction Continue)
-		If ($ADUserObject) {
+		If ($adUserObject) {
 			$dc = $domainController
 			logEntry $logfile "Found $user in Active Directory on $dc."
-			return $ADUserObject
+			return $adUserObject
 		}
 	}
 	logEntry $logfile "$user not found in Active Directory"
@@ -91,17 +93,19 @@ function validateGroup {
 	param (
 		[string]$group
 	)
+	Write-Debug "validateGroup().`$group=$group"
+	
 	$domainControllers = (Get-ADForest).Domains
 	$dc = $null
 	ForEach ($domainController in $domainControllers) {
-		$ADgroupObject = (Get-ADGroup `
+		$adGroupObject = (Get-ADGroup `
 							-LDAPFilter "(SAMAccountName=$group)" `
 							-Server $domainController `
 							-ErrorAction Continue)
-		If ($ADgroupObject) {
+		If ($adGroupObject) {
 			$dc = $domainController
 			logEntry $logfile "Found $group in Active Directory on $dc."
-			return $ADgroupObject
+			return $adGroupObject
 		}
 	}
 	logEntry $logfile "$group not found in Active Directory"
@@ -111,13 +115,28 @@ function validateGroup {
 
 function addGroupMember {
 	param (
-		[Microsoft.ActiveDirectory.Management.ADGroup]$group,
+		[Microsoft.ActiveDirectory.Management.adGroup]$group,
 		[Microsoft.ActiveDirectory.Management.ADUser]$user
 	)
+	Write-Debug "addGroupMember().`$group=$group"	
+	Write-Debug "addGroupMember().`$user=$user"
+	
+	$groupObject = validateGroup $group
+	$userObject = validateUser $user
+	
 	If ($userObject -AND $groupObject) {
+		Write-Debug "addGroupMember().`$userObject -And `$groupObject evaluate True"
+		
 		logEntry $logFile "Adding user to group."
 		Add-ADGroupMember -Identity $groupObject -Members $userObject -WhatIf # Simulated add, no actual changes will be made so verifyAdd will be false
-		$verifyAdd = Get-ADGroupMember -Identity $groupObject | Where-Object -Property DistinguishedName -EQ $userObject.DistinguishedName
+
+		$globalCatalog = 'nos.boeing.com' # Add dynamic search for GC
+		$verifyAdd = (Get-ADGroup `
+			-Identity $groupObject `
+			-Server $globalCatalog `
+			-Properties Members `
+			| Select-Object -ExpandProperty Members).contains($userObject.DistinguishedName)
+		Write-Debug "addGroupMember().`$verifyAdd=$verifyAdd"
 		If ($verifyAdd) {
 			logEntry $logfile "User successfully added to group"
 			return $true
@@ -130,10 +149,13 @@ function addGroupMember {
 	
 
 $logFile = "$issueId.txt"
-$userObject = validateUser $Username $dc
-$groupObject = validateGroup $ADGroup $dc
-$result = addGroupMember $groupObject $userObject
+$result = addGroupMember $adGroup $username
 
+If ($result) {
+	Exit 0
+} Else {
+	Exit 1
+}
 
 
 

@@ -11,12 +11,12 @@ from requests.packages.urllib3.exceptions import InsecureRequestWarning # for te
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning) # for testing
 
 
-def getAllIssues(jiraURI: str, projectKey: str, issueStatus: str, componentName: str, b64Credential: str) -> list:
+def getAllIssues(jiraUri: str, projectKey: str, issueStatus: str, componentName: str, b64Credential: str) -> list:
 	headers = {'Authorization':'Basic ' + b64Credential}
 	restPath = 'rest/api/2/search/'
-	queryJQL = ('?jql=project=' + projectKey + ' AND status=\'' + issueStatus + '\''\
+	queryJql = ('?jql=project=' + projectKey + ' AND status=\'' + issueStatus + '\''\
 				+ ' AND component = \'' + componentName + '\'&fields=key').replace(' ', '+')
-	restResponse = requests.get(jiraURI + restPath + queryJQL, headers = headers, verify = False)
+	restResponse = requests.get(jiraUri + restPath + queryJql, headers = headers, verify = False)
 	assert (restResponse.status_code == 200), 'getAllIssues REST response was not 200'
 	jsonResponse = json.loads(restResponse.text)
 	#issueCount = jsonResponse['total']
@@ -27,23 +27,23 @@ def getAllIssues(jiraURI: str, projectKey: str, issueStatus: str, componentName:
 	return issues
 
 	
-def getSingleIssue(jiraURI: str, issueId: str, b64Credential: str) -> dict:
+def getSingleIssue(jiraUri: str, issueId: str, b64Credential: str) -> dict:
 	headers = {'Authorization':'Basic ' + b64Credential}
 	restPath = 'rest/api/2/issue/'
-	restResponse = requests.get(jiraURI + restPath + issueId, headers = headers, verify = False)
+	restResponse = requests.get(jiraUri + restPath + issueId, headers = headers, verify = False)
 	assert (restResponse.status_code == 200), 'getSingleIssue REST response was not 200'
 	jsonResponse = json.loads(restResponse.text)
 	return jsonResponse
 	
 
-def getEpicFields(jiraURI, issueJSON: str, b64Credential: str) -> list: # Returns [project key, story points]
+def getEpicFields(jiraUri, issueJson: str, b64Credential: str) -> list: # Returns [project key, story points]
 	JIRA_EPIC_LINK = 'customfield_10100'
 	JIRA_EPIC_NAME = 'customfield_10102'
 	JIRA_STORY_POINTS = 'customfield_10106'
 	
 	epicFields = []
-	epicLink = issueJSON['fields'][JIRA_EPIC_LINK]
-	epicName = getSingleIssue(jiraURI, epicLink, b64Credential)
+	epicLink = issueJson['fields'][JIRA_EPIC_LINK]
+	epicName = getSingleIssue(jiraUri, epicLink, b64Credential)
 	epicFields.append(epicName['fields'][JIRA_EPIC_NAME])
 	epicFields.append(int(epicName['fields'][JIRA_STORY_POINTS]))
 	return epicFields
@@ -80,8 +80,8 @@ def parseRecord(record: str, epicFields: list) -> list: # To Do: Add field valid
 	return row
 
 	
-def parseRequest(issueJSON: str, epicFields: list) -> list: # Returns array of license requests from Jira issue
-	jiraDescription = issueJSON['fields']['description']
+def parseRequest(issueJson: str, epicFields: list) -> list: # Returns array of license requests from Jira issue
+	jiraDescription = issueJson['fields']['description']
 	nameCount = jiraDescription.count('Name=')
 	requestStart = 0
 	requestEnd = 0
@@ -101,12 +101,12 @@ def parseRequest(issueJSON: str, epicFields: list) -> list: # Returns array of l
 	return requests
 
 	
-def setComment(jiraURI: str, issueId: str, b64Credential: str, comment: str):
+def setComment(jiraUri: str, issueId: str, b64Credential: str, comment: str):
 	headers = {'Authorization':'Basic ' + b64Credential, 'Accept':'application/json', 'Content-Type':'application/json'}
 	restPath = 'rest/api/2/issue/' + issueId + '/comment'
 	postData = {"body": comment}
 	payload = json.dumps(postData)
-	restResponse = requests.post(jiraURI + restPath, data = payload, headers = headers, verify = False)
+	restResponse = requests.post(jiraUri + restPath, data = payload, headers = headers, verify = False)
 	assert (restResponse.status_code == 201), 'setComment REST response was not 201'
 	
 	
