@@ -1,352 +1,211 @@
-#!python
-
-"""
-	Description:
-	The purpose of this project is to automate the execution of service requests granting license access to the SDTEOB
-	applications. The steps executed are based on the following Confluence work instruction:
-	SDE Internal Work Instructions:
-		https://confluence-sdteob.web.boeing.com/pages/viewpage.action?pageId=21676608
-	
-	Input:
-	There is one required command line argument, a base64 encoded string consisting of 'username:password'. This
-	string can be obtained from the included PowerShell or Bash scripts, encode-b64.ps1 and encode-b64.sh.
-	
-	# Future Work
-	API
-		main
-		package
-	Error handling
-	Peer Review
-	Merge
-	Unit tests
-	usage/man page
-	arg parse
-	
-	InSite input bemsid return us person and company affiliation
-	Encapsulate into api
-	
-	determine lists for valid vs invalid and notification of failure
-	possible comment back to Jira
-	
-	optional:
-	check license pool before importing
-	report: count allocated licenses
-	get forcasted user licenses (story points in epic)
-	***
-"""
+#!/usr/bin/env python
 
 __author__ = 'sp909e'
 __copyright__ = 'Boeing (C) 2020, All rights reserved'
 __license__ = 'Proprietary'
-__email__ = 'travis.l.holt@boeing.com'
 __status__ = 'development'
-
 
 # Imports - built in
 import argparse
-
+import getpass
+import datetime
 
 # Imports - local or specific library 
-import jira
 import insite
-import powershell
+import ldap_query
 
 
 class Person:
-	"""This class represents a single user"""
-	# Constant userData indices
-	FULLNAME = 0
-	EMAIL = 1
-	WINDOWSID = 2
-	BEMSID = 3
-	ROLE = 4
-	PROJECTKEY = 5
-
-		
-	def __init__(self, userData: list, issueId: str):
+	def __init__(self, userDataJson: dict):
 		# Instance Attributes
-		self.issueId = ''
-		self.projectKey = ''
 		self.name = ''
 		self.emailAddress = ''
-		self.windowsId = ''
 		self.bemsid = ''
-		self.role = ''
 		
 		self.company = ''
 		self.exportStatus = ''
 		self.cedDataSource = ''	
-	
-		self.groups = []
+
 		self.validUser = False
+		self.windowsId = ''
 		
-		self.groups.clear()
-		self.setIssueId(issueId)
-		self.setProjectKey(userData[self.PROJECTKEY])
-		self.setName(userData[self.FULLNAME])
-		self.setEmailAddress(userData[self.EMAIL])
-		self.setWindowsId(userData[self.WINDOWSID])
-		self.setBemsid(userData[self.BEMSID])
-		self.setRole(userData[self.ROLE])
+		self.setNameFromJson(userDataJson)
+		self.setEmailAddressFromJson(userDataJson)
+		self.setBemsidFromJson(userDataJson)
 		
-	
-	def getIssueId(self):
-		return self.issueId
-	
-	
-	def getProjectKey(self):
-		return self.projectKey
+		self.setCompanyFromJson(userDataJson)
+		self.setExportStatusFromJson(userDataJson)
+		self.setCedDataSourceFromJson(userDataJson)
 		
-	
 	def getName(self):
 		return self.name
-
 		
 	def getEmailAddress(self):
 		return self.emailAddress
 		
-		
-	def getWindowsId(self):
-		return self.windowsId
-		
-		
 	def getBemsid(self):
 		return self.bemsid
-		
-		
-	def getRole(self):
-		return self.role
-
 	
 	def getCompany(self):
 		return self.company
 	
-
 	def getExportStatus(self):
 		return self.exportStatus
 
-
 	def getCedDataSource(self):
 		return self.cedDataSource
-		
-		
-	def getGroups(self):
-		return self.groups
-		
-		
+	
 	def getUserValidity(self):
 		return self.validUser
-
-		
-	def setIssueId(self, issueId: str):
-		self.issueId = issueId
 	
-	
-	def setProjectKey(self, projectKey: str):
-		self.projectKey = projectKey
-		
+	def getWindowsId(self):
+		return self.windowsId
 	
 	def setName(self, name: str):
 		self.name = name
-
+	
+	def setNameFromJson(self, json: dict):
+		first = ''
+		middle = ''
+		last = ''
+		first = json['resultholder']['profiles']['profileholder']['user']['firstName']
+		try:
+			middle = json['resultholder']['profiles']['profileholder']['user']['middleName']
+		except:
+			print('Middle name data not listed in inSite.')
+		last = json['resultholder']['profiles']['profileholder']['user']['lastName']
+		self.name = last + ', ' + first + ' ' + middle
 		
 	def setEmailAddress(self, emailAddress: str):
-		charIndex = emailAddress.find('mailto') - 1 # extract just email from [user@domain.ext|mailto:user@domain.ext]
-		if charIndex >= 0:
-			emailAddress = emailAddress[1:charIndex] # Start at 1 to remove leading bracket
 		self.emailAddress = emailAddress
-		
-		
-	def setWindowsId(self, windowsId: str):
-		findIndex = windowsId.find('}')
-		if findIndex >= 0:
-			windowsId = windowsId[findIndex + 1:windowsId.rfind('{')]
-		
-		findIndex = windowsId.find('*') 
-		if findIndex >= 0:
-			windowsId = windowsId[findIndex + 1:windowsId.rfind('*')]
-		
-		findIndex = windowsId.find('\\')
-		if findIndex >= 0:
-			windowsId = windowsId[findIndex + 1:len(windowsId)]
-		
-		self.windowsId = windowsId		
+	
+	def setEmailAddressFromJson(self, json: dict):
+		self.emailAddress = json['resultholder']['profiles']['profileholder']['user']['emailAddress']
 		
 	def setBemsid(self, bemsid: str):
-		findIndex = bemsid.find('[')
-		if findIndex >= 0:
-			bemsid = bemsid[findIndex + 1:len(bemsid)]
-			
-		findIndex = bemsid.find('|')
-		if findIndex >= 0:
-			bemsid = (bemsid[0:findIndex]).strip()
-
 		self.bemsid = bemsid
 
-
-	def setRole(self, role: str):
-		self.role = role
-
+	def setBemsidFromJson(self, json: dict):
+		self.bemsid = json['resultholder']['profiles']['profileholder']['user']['bemsId']
 		
 	def setCompany(self, company: str):
-		self.company = company
-
+		self.company = company	
+	
+	def setCompanyFromJson(self, json: dict):
+		self.company = json['resultholder']['profiles']['profileholder']['user']['company']
 
 	def setExportStatus(self, exportStatus: str):
 		self.exportStatus = exportStatus
-
+	
+	def setExportStatusFromJson(self, json: dict):
+		self.exportStatus = json['resultholder']['profiles']['profileholder']['user']['usPersonStatusString']
 
 	def setCedDataSource(self, cedDataSource: str):
 		self.cedDataSource = cedDataSource
-
 		
-	def setGroups(self):
-		cnLeft = 'SDTEOB_LIC'
-		cnRight = '_USERS'
-		cnExt = '_EXT'
-		cnGen = '_GEN'
-		cnDev = '_DEV'
-		genGroup = cnLeft \
-			+ ('' if (self.cedDataSource).lower() == 'eclascon' or (self.cedDataSource).lower() == 'bps' else cnExt) \
-			+ cnGen \
-			+ '_' + self.projectKey \
-			+ cnRight
-		self.groups.append(genGroup)
-		if (self.role).lower().find('dev') >= 0:
-			devGroup = genGroup.replace(cnGen, cnDev)
-			self.groups.append(devGroup)
+	def setCedDataSourceFromJson(self, json: dict):
+		self.cedDataSource = json['resultholder']['profiles']['profileholder']['user']['cedDataSource']
+	
+	def setUserValidity(self):
+		if (self.exportStatus).upper() == 'U. S. PERSON':
+			self.validUser = True
+	
+	def setWindowsId(self, id: str):
+		if (not id == None):
+			self.windowsId = id
+
+			
+def getCredential(username: str) -> dict:
+	password = getpass.getpass(prompt='Enter password for ' + username + ': ')
+	return {"username" : username, "password" : password}
 	
 
-	def setUserValidity(self, insiteUri: str):
-		if ((self.getExportStatus()).upper() == 'U. S. PERSON' \
-			and insite.getBemsidFromWindowsId(insiteUri, self.windowsId) == self.bemsid):
-				self.validUser = True
-
-				
-	def toString(self):
-		stringFormat = '{},{},{},{},{},{},{},{},{},{},{},{}'
-		print(stringFormat.format(self.issueId, \
-								self.projectKey, \
-								self.name, \
-								self.emailAddress, \
-								self.windowsId, \
-								self.bemsid, \
-								self.role, \
-								str(self.groups), \
-								self.company, \
-								self.exportStatus, \
-								self.cedDataSource, \
-								'True' if (self.validUser) else 'False'))
-								
-								
-class Project:
-	projectKey = ''
-	storyPoints = ''
-	pointsUsed = ''
+def OutputConsole(title: str, users: list) -> str:
+	output = ''
+	titleFormat = '{:^107}'
+	output += titleFormat.format(title) + '\n'
+	output += titleFormat.format('_' * 107) + '\n'
+	headerFormat = '{:^25} {:^9} {:^8} {:^14} {:^25} {:^15} {:^5}'
+	output += headerFormat.format('Name', 'BEMSID', 'UserId', 'Export', 'Company', 'CED', 'Valid') + '\n'
+	output += headerFormat.format('-' * 25, '-' * 9, '-' * 8, '-' * 14, '-' * 25, '-' * 15, '-' * 5) + '\n'
 	
-	def __init__(self, projectKey, storyPoints):
-		self.setProjectKey(projectKey)
-		self.setStoryPoints(storyPoints)
+	#rowFormat = '{:25.25} {:^9.9} {:^8.8} {:^14.14} {:^25.25} {:^15.15} {:^5.5}'
+	rowFormat = '{:25.25} {:^9.9} {:^8.8} {:^14.14} {:^25.25} {:^15.15} {:^5.5}'
+	for user in users:
+		output += rowFormat.format(user.getName(), 
+									user.getBemsid(), 
+									user.getWindowsId(), 
+									user.getExportStatus(),
+									user.getCompany(), 
+									user.getCedDataSource(), 
+									'True' if (user.getUserValidity()) else 'False') + '\n'
+	return output
+
 	
-	
-	def getProjectKey(self):
-		return self.projectKey
-
-		
-	def getStoryPoints(self):
-		return self.storyPoints
-
-		
-	def getPointsUsed(self):
-		return self.pointsUsed
-		
-
-	def setProjectKey(self, projectKey):
-		self.projectKey = projectKey
-
-		
-	def setStoryPoints(self, storyPoints):
-		self.storyPoints = storyPoints
-
-		
-	def setPoints(self, points):
-		self.pointsUsed = points
-		
-
-def outputCsv(userList: list, listName: str):
-	outputFile = listname + '.csv'
-	fileObject = open(outputFile, "a")
-	lines = fileObjects.readlines()
-	if lines <= 0:
-		csvFormat = '{},{},{},{},{},{},{},{},{},{},{},{}'
-		fileObject.write(stringFormat.format('IssueId','ProjectKey','Name','EmailAddress','Windows Username','BEMSID','Role','AD Groups','Company','Export Status','CED Source','Valid'))
-	for user in userList:
-		fileObject.write(user.toString())
+def OutputCsv(users: list):
+	output = ''
+	csvFormat = '{},{},{},{},{},{},{}'
+	output += csvFormat.format('Name', 'BEMSID', 'UserId', 'Export', 'Company', 'CED', 'Valid') + '\n'
+	for user in users:
+		output += csvFormat.format('\"' + user.getName() + '\"', 
+							user.getBemsid(), 
+							user.getWindowsId(), 
+							user.getExportStatus(),
+							user.getCompany(), 
+							user.getCedDataSource(), 
+							'True' if (user.getUserValidity()) else 'False') + '\n'
+	timestamp = (datetime.datetime.now()).strftime('%Y%m%d-%I%M%S')
+	outputFile = 'license_request_' + timestamp + '.csv'
+	fileObject = open(outputFile, "w")
+	fileObject.write(output)
 	fileObject.close()
-	
+
 	
 if __name__ == '__main__':
 	# Parse command line arguments
 	parser = argparse.ArgumentParser(description='Automated User-Granting license on BEN (SDTEOB).')
-	parser.add_argument('credential', help = 'Enter your b64 encoded credential string.',
-						action = 'store')
+	parser.add_argument('--username', '-u', 
+						help = 'quoted string \"domain\\username\". You will be prompted for a password.',
+						action = 'store',
+						required = True)
+	parser.add_argument('--bemsid', '-b',
+						help = 'Enter a comma separated list of BEMSIDs',
+						action = 'store', nargs='+')
 	args = parser.parse_args()
-	b64Credential = args.credential
+	
+	credentials = {}
+	if not (args.username == None):
+		credentials = getCredential(args.username)
 	
 	# Configuration
-	jiraUri = 'https://jira-sdteob.web.boeing.com/'
-	jiraCert = ''
-	jiraProject = 'SDTEPROG'
-	jiraStatus = 'Closed' # 'To Do'
-	jiraComponent = 'License-Request'
 	insiteUri = 'https://insite.web.boeing.com/'
-
-	projects = [] # To Do: Get Confluence and Epic story points and compare to AD totals
+	gc = 'ldap://nos.boeing.com:3268'
+	baseDn = 'dc=boeing,dc=com'
 	
-	serviceRequests = jira.getAllIssues(jiraUri, jiraProject, jiraStatus, jiraComponent, b64Credential)
-	assert len(serviceRequests) > 0, 'No service requests found.'
+	validUsers = []
+	invalidUsers = []
+	for id in args.bemsid:
+		insiteJson = insite.getInsiteData(insiteUri, id)
+		
+		person = Person(insiteJson)
+		person.setWindowsId(ldap_query.ldap3Query(credentials, gc, baseDn, person.getEmailAddress()))
+		person.setUserValidity()
+		
+		if person.getUserValidity():
+			validUsers.append(person)
+		else:
+			invalidUsers.append(person)
 	
-	for request in serviceRequests:
-		peopleAccept = []
-		peopleReject = []
+	if (len(validUsers) > 0):
+		print(OutputConsole('Valid Users', validUsers))
 		
-		requestJiraData = jira.getSingleIssue(jiraUri, request, b64Credential)
-		epicFields = jira.getEpicFields(jiraUri, requestJiraData, b64Credential)
-		projects.append(Project(epicFields[0], epicFields[1]))
-		users = jira.parseRequest(requestJiraData, epicFields)
-		
-		for user in users:
-			myPerson = Person(user, request)
-			myPerson.setIssueId(request)
-			
-			requestInsiteData = insite.getInsiteData(insiteUri, myPerson.getBemsid())
-			myPerson.setCompany(insite.getCompany(requestInsiteData))
-			myPerson.setExportStatus(insite.getExportStatus(requestInsiteData))
-			myPerson.setCedDataSource(insite.getCedDataSourceType(requestInsiteData))
-			myPerson.setGroups()
-			
-			myPerson.setUserValidity(insiteUri)
-			if myPerson.getUserValidity() == True:
-				peopleAccept.append(myPerson)
-			else:
-				peopleReject.append(myPerson)
-		
-		# Add accepted users to group
-		commentFormat = '{}, added to group(s): {}\n'
-		acceptedUsers = ''
-		userAddResult = ''
-		for person in peopleAccept:
-			acceptedUsers += commentFormat.format(person.getName(), str(person.getGroups()))
-			for group in person.getGroups():
-				userAddResult = powershell.setGroupMember(person.getIssueId(), person.getWindowsId(), group)
-				print(userAddResult)
-		print(acceptedUsers)
-		# jira.setComment(jiraUri, request, b64Credential, acceptedUsers)
-		
-		commentFormat = '{}, not added to group(s): {}\n'
-		rejectedUsers = ''
-		for person in peopleReject:
-			rejectedUsers += commentFormat.format(person.getName(), str(person.getGroups()))
-		print(rejectedUsers)
-		# jira.setComment(jiraUri, request, b64Credential, rejectedUsers)
+	if (len(invalidUsers) > 0):
+		print(OutputConsole('Invalid Users', invalidUsers))
 	
+	# Combine lists for csv output
+	allUsers = []
+	for user in validUsers:
+		allUsers.append(user)
+	for user in invalidUsers:
+		allUsers.append(user)
+	OutputCsv(allUsers)
