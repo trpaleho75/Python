@@ -1,0 +1,73 @@
+2022-09-08 11:35:39,751 - WARNING - cli:output_message:231 - Certificate not provided, SSL Verification disabled.
+2022-09-08 11:35:46,632 - INFO - web:validate_and_authorize_url:134 - Checking for Jira and testing credentials...
+2022-09-08 11:35:47,231 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/serverInfo - Query completed. Elapsed time 00:00:00
+2022-09-08 11:35:47,363 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/user?username=sp909eadm01 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:35:47,363 - INFO - cli:output_message:228 - sp909eadm01, authorized on https://jira-sdteob-pp.web.boeing.com. Jira version: 8.20.10.
+2022-09-08 11:35:48,663 - INFO - import_pre:import_pre:29 - 
+Pre-Import Started
+2022-09-08 11:35:51,000 - INFO - cli:output_message:228 - Selected file: C:/Users/sp909e/Desktop/TestData/NVATSTPRD/NVATSTPRD_20220824-0717.csv
+2022-09-08 11:35:51,089 - INFO - cli:output_message:228 - Checking project key
+2022-09-08 11:35:51,091 - INFO - core:get_project_key:69 - Project key = NVATSTPRD
+2022-09-08 11:35:54,456 - INFO - cli:output_message:228 - Key update complete. Replaced 163 instances of "NVATSTPRD" with "NVATSTPP".
+2022-09-08 11:35:54,457 - INFO - cli:output_message:228 - Validating project.
+2022-09-08 11:35:54,587 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/NVATSTPP - Query completed. Elapsed time 00:00:00
+2022-09-08 11:35:54,587 - INFO - cli:output_message:228 - NVATSTPP project found.
+2022-09-08 11:35:54,700 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/NVATSTPP/role - Query completed. Elapsed time 00:00:00
+2022-09-08 11:35:54,815 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/24300/role/10803 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:35:54,929 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/24300/role/11401 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:35:55,046 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/24300/role/10402 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:35:55,162 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/24300/role/10801 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:35:55,272 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/24300/role/11201 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:35:55,388 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/24300/role/10601 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:35:55,505 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/24300/role/10404 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:35:55,615 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/24300/role/10806 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:35:55,738 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/24300/role/10200 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:35:55,854 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/24300/role/11303 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:35:55,973 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/24300/role/11001 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:35:56,089 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/24300/role/10800 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:35:56,198 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/24300/role/10900 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:35:56,307 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/24300/role/10807 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:35:56,424 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/24300/role/10805 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:35:56,548 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/24300/role/11200 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:35:56,676 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/24300/role/10804 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:35:56,782 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/24300/role/10600 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:35:56,898 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/24300/role/10700 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:35:57,023 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/24300/role/10401 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:35:57,187 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/24300/role/10407 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:35:57,299 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/24300/role/11302 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:35:57,407 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/24300/role/11403 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:35:57,516 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/24300/role/10403 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:36:00,857 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/24300/role/11404 - Query completed. Elapsed time 00:00:03
+2022-09-08 11:36:00,969 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/24300/role/11300 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:36:01,090 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/24300/role/11002 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:36:01,217 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/24300/role/10406 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:36:01,336 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/24300/role/11405 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:36:01,451 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/24300/role/11101 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:36:01,568 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/24300/role/10409 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:36:01,676 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/24300/role/11400 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:36:01,795 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/24300/role/11402 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:36:01,912 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/24300/role/10408 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:36:02,029 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/24300/role/10203 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:36:02,204 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/24300/role/10002 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:36:02,329 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/24300/role/10400 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:36:02,444 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/24300/role/10802 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:36:02,561 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/24300/role/11000 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:36:02,672 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/24300/role/11301 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:36:02,796 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/user/permission/search?permissions=PROJECT_ADMIN,MOVE_ISSUE,DELETE_ISSUE,CLOSE_ISSUE,BROWSE&projectKey=NVATSTPP&username=sp909eadm01 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:36:27,102 - INFO - cli:output_message:228 - Normalizing time format to "%d/%m/%Y_%H:%M".
+2022-09-08 11:36:27,104 - INFO - core:update_datetimes:772 - Searching for simple datetime columns.
+2022-09-08 11:36:27,104 - INFO - core:update_datetimes:780 - Searching for compound datetime columns.
+2022-09-08 11:36:27,199 - INFO - cli:output_message:228 - Finished updating datetime values.
+2022-09-08 11:36:27,200 - INFO - cli:output_message:228 - Checking for user CSVs.
+2022-09-08 11:36:29,759 - INFO - cli:output_message:228 - Checking for version CSVs.
+2022-09-08 11:36:29,762 - INFO - cli:output_message:228 - Found 1 version file(s).
+2022-09-08 11:36:30,361 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/NVATSTPP/versions - Query completed. Elapsed time 00:00:00
+2022-09-08 11:36:30,365 - INFO - cli:output_message:228 - Added 0/8 versions. Version import complete.
+2022-09-08 11:36:30,367 - INFO - cli:output_message:228 - Checking for component CSVs.
+2022-09-08 11:36:30,370 - INFO - cli:output_message:228 - Found 1 component file(s).
+2022-09-08 11:36:30,506 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/project/NVATSTPP/components - Query completed. Elapsed time 00:00:00
+2022-09-08 11:36:30,515 - INFO - cli:output_message:228 - Added 0/1 components. Component import complete.
+2022-09-08 11:36:31,707 - INFO - web:rest_get:254 - https://jira-sdteob-pp.web.boeing.com/rest/api/2/user/permission/search?permissions=PROJECT_ADMIN,MOVE_ISSUE,DELETE_ISSUE,CLOSE_ISSUE,BROWSE&projectKey=NVATSTPP&username=sp909eadm01 - Query completed. Elapsed time 00:00:00
+2022-09-08 11:36:31,707 - INFO - cli:output_message:228 - Found 2 attachments.
+2022-09-08 11:36:39,511 - INFO - cli:output_message:228 - CSV contains Epics; validating statuses.
+2022-09-08 11:36:45,275 - INFO - io_module:write_csv:223 - Finished writing: C:\Users\sp909e\Desktop\TestData\NVATSTPRD\NVATSTPRD_20220824-0717.csv

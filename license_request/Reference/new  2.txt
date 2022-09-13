@@ -1,0 +1,26 @@
+await fetch("https://mars.web.boeing.com/mars/act-search?8-3.IBehaviorListener.0-searchForm-submit", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101 Firefox/91.0",
+        "Accept": "application/xml, text/xml, */*; q=0.01",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+        "Wicket-Ajax": "true",
+        "Wicket-Ajax-BaseURL": "act-search?8",
+        "Wicket-FocusedElementId": "ida7",
+        "X-Requested-With": "XMLHttpRequest",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://mars.web.boeing.com/mars/act-search?8",
+    "body": "wicket-ajax-baseurl=act-search%3F8&wicket-ajax=true&id9e_hf_0=&radioGroup=radio0&radioGroup%3AbemsInput=3318892&columns%3A2%3AaccountTypes%3A1%3AchkBox=on&p%3A%3Asubmit=1",
+    "method": "POST",
+    "mode": "cors"
+});
+
+
+
+
+
+wicket-ajax-baseurl=act-search%3F8&wicket-ajax=true&id9e_hf_0=&radioGroup=radio0&radioGroup%3AbemsInput=3318892&columns%3A2%3AaccountTypes%3A1%3AchkBox=on&p%3A%3Asubmit=1

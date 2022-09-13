@@ -1,0 +1,181 @@
+2022-08-09 07:29:00,393 - INFO - loadtest:<module>:49 - Welcome to the Jira load tester
+2022-08-09 07:29:02,335 - INFO - issue:create_issue:145 - PCTES: Created Story PCTES-901
+2022-08-09 07:29:02,820 - INFO - issue:create_issue:145 - RWOJTP: Created Epic RWOJTP-691
+2022-08-09 07:29:02,854 - INFO - issue:create_issue:145 - PCTES: Created Story PCTES-902
+2022-08-09 07:29:02,904 - INFO - issue:create_issue:145 - PCTES: Created Story PCTES-903
+2022-08-09 07:29:02,922 - INFO - issue:create_issue:145 - PCTES: Created Epic PCTES-904
+2022-08-09 07:29:02,991 - INFO - issue:create_issue:145 - RWOJTP: Created Epic RWOJTP-692
+2022-08-09 07:29:03,449 - INFO - issue:create_issue:145 - PCTES: Created Epic PCTES-906
+2022-08-09 07:29:03,462 - INFO - issue:create_issue:145 - PCTES: Created Epic PCTES-905
+2022-08-09 07:29:03,529 - INFO - issue:create_issue:145 - PCTES: Created Epic PCTES-907
+2022-08-09 07:29:03,641 - INFO - issue:create_issue:145 - RWOJTP: Created Story RWOJTP-693
+2022-08-09 07:29:03,799 - INFO - issue:link_issue:259 - PCTES: Link established, PCTES-901 Blocks PCTES-904.
+2022-08-09 07:29:04,321 - INFO - issue:transition_issue:216 - PCTES: PCTES-901 transitioned to "In Progress"
+2022-08-09 07:29:04,600 - INFO - issue:transition_issue:216 - PCTES: PCTES-902 transitioned to "To Do"
+2022-08-09 07:29:05,166 - INFO - issue:upload_attachment:187 - PCTES-902: Successfully uploaded attachment "C:\Users\sp909e\Desktop\TestData\ELL\SDTEPROG-12785\ELL_20220727-0830.csv"
+2022-08-09 07:29:07,369 - INFO - issue:upload_attachment:187 - PCTES-904: Successfully uploaded attachment "C:\Users\sp909e\Desktop\Jira query work.txt"
+2022-08-09 07:29:07,690 - INFO - issue:upload_attachment:187 - PCTES-902: Successfully uploaded attachment "C:\Users\sp909e\Desktop\Boeing Managed File Transfer Tool (MFT) Instructions [BETA] 07-18-2022.pdf"
+2022-08-09 07:29:08,553 - INFO - issue:transition_issue:216 - PCTES: PCTES-904 transitioned to "In Progress"
+2022-08-09 07:29:10,360 - INFO - issue:upload_attachment:187 - PCTES-902: Successfully uploaded attachment "C:\Users\sp909e\Desktop\Boeing Managed File Transfer Tool (MFT) Instructions [BETA] 07-18-2022.pdf"
+2022-08-09 07:29:10,699 - INFO - issue:link_issue:259 - PCTES: Link established, PCTES-903 Cloners RWOJTP-693.
+2022-08-09 07:29:11,002 - INFO - issue:upload_attachment:187 - PCTES-904: Successfully uploaded attachment "C:\Users\sp909e\Desktop\Boeing Managed File Transfer Tool (MFT) Instructions [BETA] 07-18-2022.pdf"
+2022-08-09 07:29:11,070 - INFO - issue:transition_issue:216 - PCTES: PCTES-903 transitioned to "Done"
+2022-08-09 07:29:11,372 - INFO - issue:add_comment:232 - PCTES: PCTES-903, Comment added.
+2022-08-09 07:29:11,658 - INFO - issue:upload_attachment:187 - PCTES-901: Successfully uploaded attachment "C:\Users\sp909e\Pictures\attachment1655407238755.jpg"
+2022-08-09 07:29:11,984 - INFO - issue:add_comment:232 - RWOJTP: RWOJTP-691, Comment added.
+2022-08-09 07:29:12,207 - INFO - issue:upload_attachment:187 - PCTES-901: Successfully uploaded attachment "C:\Users\sp909e\Pictures\attachment1655407238755.jpg"
+2022-08-09 07:29:12,362 - INFO - issue:add_comment:232 - RWOJTP: RWOJTP-691, Comment added.
+2022-08-09 07:29:12,533 - INFO - issue:add_comment:232 - RWOJTP: RWOJTP-691, Comment added.
+2022-08-09 07:29:12,874 - INFO - issue:link_issue:259 - RWOJTP: Link established, RWOJTP-692 Relates PCTES-905.
+2022-08-09 07:29:13,133 - INFO - issue:upload_attachment:187 - RWOJTP-691: Successfully uploaded attachment "C:\Users\sp909e\Desktop\Jira query work.txt"
+2022-08-09 07:29:13,149 - INFO - issue:upload_attachment:187 - RWOJTP-692: Successfully uploaded attachment "C:\Users\sp909e\Pictures\attachment1655407238755.jpg"
+2022-08-09 07:29:15,333 - INFO - issue:upload_attachment:187 - RWOJTP-692: Successfully uploaded attachment "C:\Users\sp909e\Pictures\attachment1655407238755.jpg"
+2022-08-09 07:29:15,831 - INFO - issue:upload_attachment:187 - PCTES-904: Successfully uploaded attachment "C:\Users\sp909e\Desktop\Boeing Managed File Transfer Tool (MFT) Instructions [BETA] 07-18-2022.pdf"
+2022-08-09 07:29:16,114 - INFO - issue:link_issue:259 - PCTES: Link established, PCTES-905 Blocks PCTES-906.
+2022-08-09 07:29:16,415 - INFO - issue:add_comment:232 - PCTES: PCTES-905, Comment added.
+2022-08-09 07:29:16,867 - INFO - issue:upload_attachment:187 - PCTES-903: Successfully uploaded attachment "C:\Users\sp909e\Desktop\TestData\ELL\SDTEPROG-12785\ELL_20220727-0830.csv"
+2022-08-09 07:29:17,177 - INFO - issue:link_issue:259 - PCTES: Link established, PCTES-906 Cloners PCTES-907.
+2022-08-09 07:29:17,580 - INFO - issue:transition_issue:216 - PCTES: PCTES-906 transitioned to "In Progress"
+2022-08-09 07:29:17,943 - INFO - issue:upload_attachment:187 - PCTES-905: Successfully uploaded attachment "C:\Users\sp909e\Desktop\Boeing Managed File Transfer Tool (MFT) Instructions [BETA] 07-18-2022.pdf"
+2022-08-09 07:29:18,143 - INFO - issue:transition_issue:216 - PCTES: PCTES-906 transitioned to "Done"
+2022-08-09 07:29:18,267 - INFO - issue:add_comment:232 - PCTES: PCTES-906, Comment added.
+2022-08-09 07:29:18,590 - INFO - issue:link_issue:259 - PCTES: Link established, PCTES-907 Issue split RWOJTP-693.
+2022-08-09 07:29:18,737 - INFO - issue:upload_attachment:187 - PCTES-905: Successfully uploaded attachment "C:\Users\sp909e\Desktop\Boeing Managed File Transfer Tool (MFT) Instructions [BETA] 07-18-2022.pdf"
+2022-08-09 07:29:19,039 - INFO - issue:transition_issue:216 - PCTES: PCTES-907 transitioned to "To Do"
+2022-08-09 07:29:19,071 - INFO - issue:add_comment:232 - PCTES: PCTES-907, Comment added.
+2022-08-09 07:29:19,842 - INFO - issue:add_comment:232 - RWOJTP: RWOJTP-693, Comment added.
+2022-08-09 07:29:19,895 - INFO - issue:transition_issue:216 - RWOJTP: RWOJTP-693 transitioned to "Training Complete"
+2022-08-09 07:29:20,126 - ERROR - issue:transition_issue:219 - RWOJTP: RWOJTP-693 failed to transition to "Training Complete": 400: b'{"errorMessages":["It seems that you have tried to perform a workflow operation (Training Complete) that is not valid for the current state of this issue (RWOJTP-693). The likely cause is that somebody has changed the issue recently, please look at the issue history for details."],"errors":{}}'
+2022-08-09 07:29:21,985 - INFO - issue:upload_attachment:187 - RWOJTP-692: Successfully uploaded attachment "C:\Users\sp909e\Pictures\attachment1655407238755.jpg"
+2022-08-09 07:29:22,274 - INFO - issue:upload_attachment:187 - RWOJTP-693: Successfully uploaded attachment "C:\Users\sp909e\Desktop\Boeing Managed File Transfer Tool (MFT) Instructions [BETA] 07-18-2022.pdf"
+2022-08-09 07:29:28,014 - INFO - issue:upload_attachment:187 - PCTES-907: Successfully uploaded attachment "C:\Users\sp909e\Pictures\attachment1655407238755.jpg"
+2022-08-09 07:29:28,398 - INFO - issue:delete_issue:277 - PCTES-903: Deleted.
+2022-08-09 07:29:28,398 - INFO - issue:delete_issue:277 - PCTES-904: Deleted.
+2022-08-09 07:29:28,530 - INFO - issue:delete_issue:277 - PCTES-901: Deleted.
+2022-08-09 07:29:28,868 - INFO - issue:delete_issue:277 - RWOJTP-692: Deleted.
+2022-08-09 07:29:28,915 - INFO - issue:delete_issue:277 - RWOJTP-691: Deleted.
+2022-08-09 07:29:28,946 - INFO - issue:delete_issue:277 - PCTES-902: Deleted.
+2022-08-09 07:29:28,981 - INFO - issue:delete_issue:277 - PCTES-905: Deleted.
+2022-08-09 07:29:29,084 - INFO - issue:delete_issue:277 - PCTES-906: Deleted.
+2022-08-09 07:29:29,462 - INFO - issue:delete_issue:277 - PCTES-907: Deleted.
+2022-08-09 07:29:29,551 - INFO - issue:delete_issue:277 - RWOJTP-693: Deleted.
+2022-08-09 07:29:30,071 - INFO - issue:create_issue:145 - PCTES: Created Epic PCTES-908
+2022-08-09 07:29:30,071 - INFO - issue:create_issue:145 - RWOJTP: Created Epic RWOJTP-694
+2022-08-09 07:29:30,111 - INFO - issue:create_issue:145 - RWOJTP: Created Epic RWOJTP-697
+2022-08-09 07:29:30,121 - INFO - issue:create_issue:145 - RWOJTP: Created Story RWOJTP-695
+2022-08-09 07:29:30,151 - INFO - issue:create_issue:145 - RWOJTP: Created Story RWOJTP-696
+2022-08-09 07:29:30,547 - INFO - issue:create_issue:145 - RWOJTP: Created Epic RWOJTP-698
+2022-08-09 07:29:30,577 - INFO - issue:create_issue:145 - RWOJTP: Created Story RWOJTP-699
+2022-08-09 07:29:30,616 - INFO - issue:create_issue:145 - PCTES: Created Epic PCTES-909
+2022-08-09 07:29:30,638 - INFO - issue:create_issue:145 - RWOJTP: Created Story RWOJTP-700
+2022-08-09 07:29:30,648 - INFO - issue:create_issue:145 - RWOJTP: Created Epic RWOJTP-701
+2022-08-09 07:29:30,722 - ERROR - issue:link_issue:262 - Unable to establish link: PCTES-908 Cloners RWOJTP-700: 404
+2022-08-09 07:29:30,951 - INFO - issue:link_issue:259 - RWOJTP: Link established, RWOJTP-694 Duplicate RWOJTP-696.
+2022-08-09 07:29:30,973 - INFO - issue:transition_issue:216 - PCTES: PCTES-908 transitioned to "In Progress"
+2022-08-09 07:29:30,989 - INFO - issue:link_issue:259 - PCTES: Link established, PCTES-908 Relates RWOJTP-700.
+2022-08-09 07:29:31,004 - INFO - issue:transition_issue:216 - PCTES: PCTES-908 transitioned to "In Progress"
+2022-08-09 07:29:31,051 - INFO - issue:link_issue:259 - RWOJTP: Link established, RWOJTP-694 Relates RWOJTP-696.
+2022-08-09 07:29:31,268 - INFO - issue:link_issue:259 - RWOJTP: Link established, RWOJTP-694 Cloners RWOJTP-696.
+2022-08-09 07:29:31,287 - INFO - issue:transition_issue:216 - RWOJTP: RWOJTP-695 transitioned to "Training Complete"
+2022-08-09 07:29:31,333 - INFO - issue:link_issue:259 - RWOJTP: Link established, RWOJTP-695 Blocks RWOJTP-701.
+2022-08-09 07:29:31,413 - INFO - issue:transition_issue:216 - RWOJTP: RWOJTP-694 transitioned to "Jump to Closed"
+2022-08-09 07:29:31,937 - INFO - issue:transition_issue:216 - RWOJTP: RWOJTP-697 transitioned to "Create SDTE Stories"
+2022-08-09 07:29:31,977 - INFO - issue:add_comment:232 - RWOJTP: RWOJTP-697, Comment added.
+2022-08-09 07:29:32,020 - INFO - issue:add_comment:232 - RWOJTP: RWOJTP-697, Comment added.
+2022-08-09 07:29:32,252 - INFO - issue:add_comment:232 - RWOJTP: RWOJTP-697, Comment added.
+2022-08-09 07:29:32,305 - INFO - issue:transition_issue:216 - RWOJTP: RWOJTP-696 transitioned to "Training Complete"
+2022-08-09 07:29:32,539 - INFO - issue:link_issue:259 - RWOJTP: Link established, RWOJTP-696 Issue split RWOJTP-698.
+2022-08-09 07:29:32,624 - INFO - issue:link_issue:259 - RWOJTP: Link established, RWOJTP-696 Relates RWOJTP-698.
+2022-08-09 07:29:32,686 - INFO - issue:upload_attachment:187 - RWOJTP-696: Successfully uploaded attachment "C:\Users\sp909e\Desktop\Jira query work.txt"
+2022-08-09 07:29:33,405 - INFO - issue:upload_attachment:187 - RWOJTP-699: Successfully uploaded attachment "C:\Users\sp909e\Desktop\Jira query work.txt"
+2022-08-09 07:29:36,556 - INFO - issue:upload_attachment:187 - RWOJTP-695: Successfully uploaded attachment "C:\Users\sp909e\Desktop\TestData\ELL\SDTEPROG-12785\ELL_20220727-0830.csv"
+2022-08-09 07:29:36,861 - INFO - issue:upload_attachment:187 - RWOJTP-695: Successfully uploaded attachment "C:\Users\sp909e\Desktop\TestData\ELL\SDTEPROG-12785\ELL_20220727-0830.csv"
+2022-08-09 07:29:36,864 - INFO - issue:link_issue:259 - RWOJTP: Link established, RWOJTP-698 Issue split PCTES-909.
+2022-08-09 07:29:37,138 - INFO - issue:add_comment:232 - RWOJTP: RWOJTP-698, Comment added.
+2022-08-09 07:29:37,413 - INFO - issue:link_issue:259 - RWOJTP: Link established, RWOJTP-698 Relates PCTES-909.
+2022-08-09 07:29:37,574 - INFO - issue:upload_attachment:187 - RWOJTP-698: Successfully uploaded attachment "C:\Users\sp909e\Desktop\Jira query work.txt"
+2022-08-09 07:29:37,690 - INFO - issue:add_comment:232 - RWOJTP: RWOJTP-700, Comment added.
+2022-08-09 07:29:37,843 - INFO - issue:transition_issue:216 - RWOJTP: RWOJTP-700 transitioned to "Training Complete"
+2022-08-09 07:29:37,872 - ERROR - issue:transition_issue:219 - RWOJTP: RWOJTP-700 failed to transition to "Training Complete": 400: b'{"errorMessages":["It seems that you have tried to perform a workflow operation (Training Complete) that is not valid for the current state of this issue (RWOJTP-700). The likely cause is that somebody has changed the issue recently, please look at the issue history for details."],"errors":{}}'
+2022-08-09 07:29:38,133 - INFO - issue:link_issue:259 - RWOJTP: Link established, RWOJTP-700 Relates PCTES-909.
+2022-08-09 07:29:38,417 - INFO - issue:link_issue:259 - PCTES: Link established, PCTES-909 Blocks RWOJTP-701.
+2022-08-09 07:29:38,711 - INFO - issue:link_issue:259 - PCTES: Link established, PCTES-909 Duplicate RWOJTP-701.
+2022-08-09 07:29:39,146 - INFO - issue:upload_attachment:187 - RWOJTP-699: Successfully uploaded attachment "C:\Users\sp909e\Desktop\TestData\ELL\SDTEPROG-12785\ELL_20220727-0830.csv"
+2022-08-09 07:29:39,668 - INFO - issue:transition_issue:216 - RWOJTP: RWOJTP-701 transitioned to "Create SDTE Stories"
+2022-08-09 07:29:39,946 - INFO - issue:add_comment:232 - RWOJTP: RWOJTP-701, Comment added.
+2022-08-09 07:29:40,200 - INFO - issue:transition_issue:216 - RWOJTP: RWOJTP-701 transitioned to "Jump to Onboarding"
+2022-08-09 07:29:40,370 - ERROR - issue:transition_issue:219 - RWOJTP: RWOJTP-701 failed to transition to "Create SDTE Stories": 400: b'{"errorMessages":["It seems that you have tried to perform a workflow operation (Create SDTE Stories) that is not valid for the current state of this issue (RWOJTP-701). The likely cause is that somebody has changed the issue recently, please look at the issue history for details."],"errors":{}}'
+2022-08-09 07:29:41,220 - INFO - issue:upload_attachment:187 - RWOJTP-699: Successfully uploaded attachment "C:\Users\sp909e\Desktop\TestData\ELL\SDTEPROG-12785\ELL_20220727-0830.csv"
+2022-08-09 07:29:41,289 - INFO - issue:upload_attachment:187 - RWOJTP-699: Successfully uploaded attachment "C:\Users\sp909e\Desktop\TestData\ELL\SDTEPROG-12785\ELL_20220727-0830.csv"
+2022-08-09 07:29:46,615 - INFO - issue:upload_attachment:187 - PCTES-909: Successfully uploaded attachment "C:\Users\sp909e\Pictures\attachment1655407238755.jpg"
+2022-08-09 07:29:47,216 - INFO - issue:upload_attachment:187 - PCTES-909: Successfully uploaded attachment "C:\Users\sp909e\Pictures\attachment1655407238755.jpg"
+2022-08-09 07:29:47,655 - INFO - issue:delete_issue:277 - PCTES-908: Deleted.
+2022-08-09 07:29:47,686 - INFO - issue:delete_issue:277 - RWOJTP-697: Deleted.
+2022-08-09 07:29:47,717 - INFO - issue:delete_issue:277 - RWOJTP-695: Deleted.
+2022-08-09 07:29:47,925 - INFO - issue:delete_issue:277 - RWOJTP-694: Deleted.
+2022-08-09 07:29:48,172 - INFO - issue:delete_issue:277 - RWOJTP-699: Deleted.
+2022-08-09 07:29:48,335 - INFO - issue:delete_issue:277 - RWOJTP-700: Deleted.
+2022-08-09 07:29:48,364 - INFO - issue:delete_issue:277 - RWOJTP-696: Deleted.
+2022-08-09 07:29:48,484 - INFO - issue:delete_issue:277 - RWOJTP-698: Deleted.
+2022-08-09 07:29:48,636 - INFO - issue:delete_issue:277 - PCTES-909: Deleted.
+2022-08-09 07:29:48,758 - INFO - issue:delete_issue:277 - RWOJTP-701: Deleted.
+2022-08-09 07:29:49,274 - INFO - issue:create_issue:145 - PCTES: Created Epic PCTES-910
+2022-08-09 07:29:49,274 - INFO - issue:create_issue:145 - PCTES: Created Epic PCTES-911
+2022-08-09 07:29:49,306 - INFO - issue:create_issue:145 - RWOJTP: Created Story RWOJTP-705
+2022-08-09 07:29:49,337 - INFO - issue:create_issue:145 - RWOJTP: Created Story RWOJTP-706
+2022-08-09 07:29:49,353 - INFO - issue:create_issue:145 - RWOJTP: Created Story RWOJTP-704
+2022-08-09 07:29:49,738 - INFO - issue:create_issue:145 - PCTES: Created Story PCTES-912
+2022-08-09 07:29:49,738 - INFO - issue:create_issue:145 - RWOJTP: Created Story RWOJTP-707
+2022-08-09 07:29:49,776 - INFO - issue:create_issue:145 - PCTES: Created Epic PCTES-913
+2022-08-09 07:29:49,807 - INFO - issue:create_issue:145 - PCTES: Created Epic PCTES-915
+2022-08-09 07:29:49,838 - INFO - issue:create_issue:145 - PCTES: Created Epic PCTES-914
+2022-08-09 07:29:50,023 - INFO - issue:link_issue:259 - PCTES: Link established, PCTES-910 Blocks RWOJTP-704.
+2022-08-09 07:29:50,224 - INFO - issue:add_comment:232 - PCTES: PCTES-910, Comment added.
+2022-08-09 07:29:50,293 - INFO - issue:transition_issue:216 - RWOJTP: RWOJTP-704 transitioned to "Training Complete"
+2022-08-09 07:29:50,938 - INFO - issue:upload_attachment:187 - RWOJTP-704: Successfully uploaded attachment "C:\Users\sp909e\Pictures\attachment1655407238755.jpg"
+2022-08-09 07:29:51,122 - ERROR - issue:transition_issue:219 - RWOJTP: RWOJTP-704 failed to transition to "Training Complete": 400: b'{"errorMessages":["It seems that you have tried to perform a workflow operation (Training Complete) that is not valid for the current state of this issue (RWOJTP-704). The likely cause is that somebody has changed the issue recently, please look at the issue history for details."],"errors":{}}'
+2022-08-09 07:29:51,939 - INFO - issue:add_comment:232 - RWOJTP: RWOJTP-705, Comment added.
+2022-08-09 07:29:52,222 - INFO - issue:upload_attachment:187 - PCTES-910: Successfully uploaded attachment "C:\Users\sp909e\Pictures\attachment1655407238755.jpg"
+2022-08-09 07:29:52,265 - INFO - issue:link_issue:259 - RWOJTP: Link established, RWOJTP-705 Blocks RWOJTP-706.
+2022-08-09 07:29:52,513 - INFO - issue:transition_issue:216 - RWOJTP: RWOJTP-705 transitioned to "Training Complete"
+2022-08-09 07:29:52,867 - INFO - issue:transition_issue:216 - PCTES: PCTES-911 transitioned to "In Progress"
+2022-08-09 07:29:53,168 - INFO - issue:link_issue:259 - PCTES: Link established, PCTES-911 Blocks PCTES-915.
+2022-08-09 07:29:53,456 - INFO - issue:link_issue:259 - PCTES: Link established, PCTES-911 Cloners PCTES-915.
+2022-08-09 07:29:53,793 - INFO - issue:transition_issue:216 - PCTES: PCTES-911 transitioned to "To Do"
+2022-08-09 07:29:54,101 - INFO - issue:transition_issue:216 - RWOJTP: RWOJTP-706 transitioned to "Training Complete"
+2022-08-09 07:29:54,101 - INFO - issue:link_issue:259 - RWOJTP: Link established, RWOJTP-706 Issue split PCTES-913.
+2022-08-09 07:29:54,271 - ERROR - issue:transition_issue:219 - RWOJTP: RWOJTP-706 failed to transition to "Training Complete": 400: b'{"errorMessages":["It seems that you have tried to perform a workflow operation (Training Complete) that is not valid for the current state of this issue (RWOJTP-706). The likely cause is that somebody has changed the issue recently, please look at the issue history for details."],"errors":{}}'
+2022-08-09 07:29:54,371 - INFO - issue:link_issue:259 - RWOJTP: Link established, RWOJTP-706 Duplicate PCTES-913.
+2022-08-09 07:29:55,188 - INFO - issue:upload_attachment:187 - RWOJTP-707: Successfully uploaded attachment "C:\Users\sp909e\Desktop\Jira query work.txt"
+2022-08-09 07:29:55,427 - INFO - issue:link_issue:259 - RWOJTP: Link established, RWOJTP-707 Duplicate PCTES-914.
+2022-08-09 07:29:55,473 - INFO - issue:add_comment:232 - RWOJTP: RWOJTP-707, Comment added.
+2022-08-09 07:29:56,152 - INFO - issue:upload_attachment:187 - RWOJTP-707: Successfully uploaded attachment "C:\Users\sp909e\Desktop\Jira query work.txt"
+2022-08-09 07:29:56,461 - INFO - issue:link_issue:259 - PCTES: Link established, PCTES-912 Cloners PCTES-914.
+2022-08-09 07:29:56,770 - INFO - issue:link_issue:259 - PCTES: Link established, PCTES-912 Blocks PCTES-914.
+2022-08-09 07:29:56,975 - INFO - issue:link_issue:259 - PCTES: Link established, PCTES-912 Relates PCTES-914.
+2022-08-09 07:29:57,344 - INFO - issue:transition_issue:216 - PCTES: PCTES-913 transitioned to "Done"
+2022-08-09 07:29:57,636 - INFO - issue:link_issue:259 - PCTES: Link established, PCTES-913 Duplicate PCTES-914.
+2022-08-09 07:29:58,312 - INFO - issue:upload_attachment:187 - PCTES-910: Successfully uploaded attachment "C:\Users\sp909e\Pictures\attachment1655407238755.jpg"
+2022-08-09 07:29:58,343 - INFO - issue:upload_attachment:187 - PCTES-913: Successfully uploaded attachment "C:\Users\sp909e\Desktop\Jira query work.txt"
+2022-08-09 07:29:58,643 - INFO - issue:link_issue:259 - PCTES: Link established, PCTES-914 Duplicate PCTES-915.
+2022-08-09 07:29:58,649 - INFO - issue:upload_attachment:187 - RWOJTP-704: Successfully uploaded attachment "C:\Users\sp909e\Pictures\attachment1655407238755.jpg"
+2022-08-09 07:29:58,705 - INFO - issue:transition_issue:216 - PCTES: PCTES-913 transitioned to "To Do"
+2022-08-09 07:29:58,933 - INFO - issue:add_comment:232 - PCTES: PCTES-914, Comment added.
+2022-08-09 07:29:59,151 - INFO - issue:upload_attachment:187 - PCTES-912: Successfully uploaded attachment "C:\Users\sp909e\Desktop\Boeing Managed File Transfer Tool (MFT) Instructions [BETA] 07-18-2022.pdf"
+2022-08-09 07:29:59,347 - INFO - issue:upload_attachment:187 - PCTES-914: Successfully uploaded attachment "C:\Users\sp909e\Pictures\attachment1655407238755.jpg"
+2022-08-09 07:29:59,368 - INFO - issue:transition_issue:216 - PCTES: PCTES-915 transitioned to "Done"
+2022-08-09 07:29:59,539 - INFO - issue:transition_issue:216 - PCTES: PCTES-915 transitioned to "Done"
+2022-08-09 07:29:59,719 - INFO - issue:transition_issue:216 - PCTES: PCTES-915 transitioned to "Done"
+2022-08-09 07:30:00,987 - INFO - issue:upload_attachment:187 - RWOJTP-705: Successfully uploaded attachment "C:\Users\sp909e\Pictures\attachment1655407238755.jpg"
+2022-08-09 07:30:05,267 - INFO - issue:upload_attachment:187 - PCTES-915: Successfully uploaded attachment "C:\Users\sp909e\Desktop\TestData\ELL\SDTEPROG-12785\ELL_20220727-0830.csv"
+2022-08-09 07:30:07,762 - INFO - issue:upload_attachment:187 - PCTES-914: Successfully uploaded attachment "C:\Users\sp909e\Pictures\attachment1655407238755.jpg"
+2022-08-09 07:30:08,701 - INFO - issue:delete_issue:277 - RWOJTP-705: Deleted.
+2022-08-09 07:30:08,717 - INFO - issue:delete_issue:277 - RWOJTP-704: Deleted.
+2022-08-09 07:30:08,855 - INFO - issue:delete_issue:277 - PCTES-911: Deleted.
+2022-08-09 07:30:08,939 - INFO - issue:delete_issue:277 - PCTES-910: Deleted.
+2022-08-09 07:30:08,986 - INFO - issue:delete_issue:277 - RWOJTP-706: Deleted.
+2022-08-09 07:30:09,449 - INFO - issue:delete_issue:277 - RWOJTP-707: Deleted.
+2022-08-09 07:30:09,543 - INFO - issue:delete_issue:277 - PCTES-913: Deleted.
+2022-08-09 07:30:09,807 - INFO - issue:delete_issue:277 - PCTES-912: Deleted.
+2022-08-09 07:30:10,297 - INFO - issue:delete_issue:277 - PCTES-914: Deleted.
+2022-08-09 07:30:10,473 - INFO - issue:delete_issue:277 - PCTES-915: Deleted.
